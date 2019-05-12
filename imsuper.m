@@ -1,7 +1,7 @@
 function [im_result im_result_color] = imsuper(imageFilenames, scaleFactor, registration, reconstruction)
 
   if(~exist('registration','var'))
-    registration = 'keren';
+    registration = 'vandewalle';
   end
 
   if(~exist('reconstruction','var'))
@@ -48,7 +48,9 @@ function [im_result im_result_color] = imsuper(imageFilenames, scaleFactor, regi
       im_part{i} = imColor{i};
 
   end
-
+  
+%   im gray image
+%   im_part color image
   switch registration
     case 'vandewalle'
         [delta_est, phi_est] = estimate_motion(im);

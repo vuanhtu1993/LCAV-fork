@@ -1,12 +1,18 @@
-pkg load image;
-pkg load signal;
+% pkg load image;
+% pkg load signal;
 
-setNumbers = [1:9];
+setNumbers = [1:2];
 
-sampleFiles = {'./sample1/', './sample2/', './sample3/', './sample4/', './sample5/', './sample6/', './sample7/', './sample8/', './sample9/'};
-scaleFactor = [ 4 12  8  8  8  4  4  4  4];
-runFull     = [ 0  0  0  0  0  0  0  0  1];
-maxImages   = [ 4 40 30 40 20 16 15  4 10];
+% sampleFiles = {'./sample1/', './sample2/', './sample3/', './sample4/', './sample5/', './sample6/', './sample7/', './sample8/', './sample9/'};
+
+sampleFiles = {'./sample1/', './sample2/'};
+% scaleFactor = [ 4 12  8  8  8  4  4  4  4];
+% runFull     = [ 1  0  0  0  0  0  0  0  1];
+% maxImages   = [ 4 40 30 40 20 16 15  4 10];
+
+scaleFactor = [ 4 12];
+runFull     = [ 0 0];
+maxImages   = [ 4 40];
 
 for n = setNumbers
 
@@ -26,7 +32,9 @@ for n = setNumbers
     im_result = im_result_color;
   end
 
-  figure; imagesc(flipud(im_result)); axis image;
+%   figure;
+%   imagesc(flipud(im_result));
+%   axis image;
   imwrite(im_result, ['im_result_' num2str(n) '.png']);
 
 end
